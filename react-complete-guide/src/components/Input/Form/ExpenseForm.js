@@ -26,6 +26,9 @@ const ExpenseForm = (props) => {
       ammount: enteredAmount,
       date: new Date(enteredDate),
     };
+    setEnteredDate(" ");
+    setEnteredAmount(0);
+    setEnteredDesc(" ");
   };
 
   return (
@@ -33,12 +36,13 @@ const ExpenseForm = (props) => {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Expense description</label>
-          <input type="text" onChange={descChangeHandler} />
+          <input type="text" value={enteredDesc} onChange={descChangeHandler} />
         </div>
         <div className="new-expense__control">
           <label>Expense ammount</label>
           <input
             type="number"
+            vaslue={enteredAmount}
             min="0.01"
             step="0.01"
             onChange={ammountChangeHandler}
@@ -48,6 +52,7 @@ const ExpenseForm = (props) => {
           <label>Expense date</label>
           <input
             type="date"
+            value={enteredDate}
             min="2010-01-01"
             max="2050-12-31"
             onChange={dateChangeHandler}
