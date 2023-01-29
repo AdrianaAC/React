@@ -1,5 +1,6 @@
 import ExpensesList from "./components/Expenses/ExpensesList/ExpensesList";
 import NewExpense from "./components/Expenses/NewExpense/NewExpense";
+import Filter from "./components/Input/Filter/Filter";
 
 function App() {
   const expenses = [

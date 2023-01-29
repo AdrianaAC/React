@@ -8,12 +8,6 @@ function ExpenseItem(props) {
   const [desc, setDesc] = useState(props.description);
   const [amount, setAmount] = useState(props.amount);
 
-  const handleClick = () => {
-    setAmount(0);
-    setDate(new Date(2000, 0, 1));
-    setDesc("ups, something went wrong");
-  };
-
   return (
     <Card className="expense-item">
       <ExpenseDate date={date} />
@@ -21,10 +15,8 @@ function ExpenseItem(props) {
         <h2>{desc}</h2>
         <div className="expense-item__price">{amount}€</div>
       </div>
-      <button onClick={handleClick}>Edit</button>
     </Card>
   );
 }
 
 export default ExpenseItem;
-
