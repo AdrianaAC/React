@@ -21,7 +21,7 @@ function ExpensesList(props) {
         {props.items.map((expense) => {
           return (
             <ExpenseItem
-              description={expense.title}
+              description={expense.description}
               amount={expense.amount}
               date={expense.date}
             />

@@ -22,10 +22,11 @@ const ExpenseForm = (props) => {
     event.preventDefault();
 
     const expenseData = {
-      desc: enteredDesc,
-      ammount: enteredAmount,
+      description: enteredDesc,
+      amount: enteredAmount,
       date: new Date(enteredDate),
     };
+    
     props.onSaveExpense(expenseData);
     setEnteredDate(" ");
     setEnteredAmount(0);
@@ -40,10 +41,10 @@ const ExpenseForm = (props) => {
           <input type="text" value={enteredDesc} onChange={descChangeHandler} />
         </div>
         <div className="new-expense__control">
-          <label>Expense ammount</label>
+          <label>Expense amount</label>
           <input
             type="number"
-            vaslue={enteredAmount}
+            value={enteredAmount}
             min="0.01"
             step="0.01"
             onChange={ammountChangeHandler}
