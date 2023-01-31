@@ -1,6 +1,5 @@
 import ExpensesList from "./components/Expenses/ExpensesList/ExpensesList";
 import NewExpense from "./components/Expenses/NewExpense/NewExpense";
-import Filter from "./components/Input/Filter/Filter";
 import { useState } from "react";
 
 const DUMMY_EXPENSES = [
