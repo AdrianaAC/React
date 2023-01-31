@@ -15,6 +15,8 @@ function ExpensesList(props) {
     setFilteredYear(selectedYear);
   };
 
+  let noExpensesMessage = <p>No expenses</p>;
+
   return (
     <div>
       <Card className="expenses">
@@ -22,6 +24,7 @@ function ExpensesList(props) {
           onFilterChange={filterChangeHandler}
           selectedYear={filteredYear}
         />
+        {filteredExpenses.length === 0 && noExpensesMessage}
         {filteredExpenses.map((expense) => {
           return (
             <ExpenseItem
