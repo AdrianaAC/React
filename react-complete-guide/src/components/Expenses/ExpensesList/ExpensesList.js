@@ -1,54 +1,24 @@
 import ExpenseItem from "../ExpenseItem/ExpenseItem";
-import Card from "../../Utils/Card";
 import "./ExpensesList.css";
-import Filter from "../../Input/Filter/Filter";
-import { useState } from "react";
 
-function ExpensesList(props) {
-  const [filteredYear, setFilteredYear] = useState("");
-
-  let filteredExpenses = props.items.filter((expense) => {
-    return expense.date.getFullYear().toString() === filteredYear;
-  });
-
-  const filterChangeHandler = (selectedYear) => {
-    setFilteredYear(selectedYear);
-  };
-
+const ExpensesList = (props) => {
   let noExpensesMessage = <p>No expenses</p>;
 
+  if (props.items.length === 0) {
+    return <h2 className="expenses-list__fallback">{noExpensesMessage}</h2>;
+  }
   return (
-    <div>
-      <Card className="expenses">
-        <Filter
-          onFilterChange={filterChangeHandler}
-          selectedYear={filteredYear}
+    <ul className="expenses-list">
+      {props.items.map((expense) => (
+        <ExpenseItem
+          key={expense.id}
+          description={expense.description}
+          amount={expense.amount}
+          date={expense.date}
         />
-        {filteredExpenses.length === 0 && noExpensesMessage}
-        {filteredExpenses.map((expense) => {
-          return (
-            <ExpenseItem
-              key={expense.id}
-              description={expense.description}
-              amount={expense.amount}
-              date={expense.date}
-            />
-          );
-        })}
-        {/* {!filteredYear &&
-          props.items.map((expense) => {
-            return (
-              <ExpenseItem
-                key={expense.id}
-                description={expense.description}
-                amount={expense.amount}
-                date={expense.date}
-              />
-            );
-          })} */}
-      </Card>
-    </div>
+      ))}
+    </ul>
   );
-}
+};
 
 export default ExpensesList;
