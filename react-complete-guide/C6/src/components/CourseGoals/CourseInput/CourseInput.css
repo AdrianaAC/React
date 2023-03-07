@@ -6,12 +6,13 @@
   font-weight: bold;
   display: block;
   margin-bottom: 0.5rem;
+  color: #2835a8;
 }
 
 .form-control input {
   display: block;
   width: 100%;
-  border: 1px solid #ccc;
+  border: 1px solid #ae83ff7a;
   font: inherit;
   line-height: 1.5rem;
   padding: 0 0.25rem;
@@ -21,4 +22,13 @@
   outline: none;
   background: #ae83ff7a;
   border-color: #2835a8;
+}
+
+.form-control.invalid input {
+  border-color: salmon;
+  background: #ffd7d7;
+}
+
+.form-control.invalid label {
+  color: salmon;
 }
